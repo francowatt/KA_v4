@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khuselo Africa</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .hero-slide.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+ <!-- Header --> <header class="fixed top-0 w-full bg-white shadow z-50"> <div class="max-w-6xl mx-auto flex items-center justify-between p-4"> <div class="flex items-center gap-3"> <!-- Logo --> <img src="Assets/KG.png" alt="Khuselo Logo" class="h-12 w-auto" /> </div> <nav> <ul class="flex gap-6 text-gray-700"> <li><a href="#home" class="hover:text-orange-600 transition">Home</a></li> <li><a href="#services" class="hover:text-orange-600 transition">Services</a></li> <li><a href="#about" class="hover:text-orange-600 transition">About</a></li> <li><a href="#contact" class="hover:text-orange-600 transition">Contact</a></li> <li><a href="#contact" class="px-3 py-1 border border-orange-500 text-orange-500 rounded hover:bg-orange-50 transition">Request Quote</a></li> </ul> </nav> </div> </header>
+  
+  <!-- Hero / Slideshow -->
+  <section id="home" class="relative h-screen overflow-hidden">
+    <!-- Slides -->
+    <img src="Assets/Rad.png" class="hero-slide active" alt="Communication infrastructure" />
+    <img src="Assets/Cam.png" class="hero-slide" alt="Camera surveillance" />
+    <img src="Assets/Web.png" class="hero-slide" alt="Networking cables" />
+
+    <!-- Overlay content -->
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white px-6">
+      <div class="text-center space-y-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Connect & Protect  
+        </h1>
+        <p class="text-lg md:text-2xl max-w-xl mx-auto">
+          Our mission is to secure your communications, network, and assets across South Africa.
+        </p>
+        <a href="#services" class="inline-block px-6 py-3 bg-orange-500 text-white font-semibold rounded shadow hover:bg-orange-400 transition transform hover:scale-105">
+          Explore Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-6 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">Two-Way Radio Systems</h3>
+        <p>
+          We design and install two-way radio networks, repeaters, and long-range communication for operational coverage — ideal for security, mining, transport, and remote sites.
+        </p>
+        <img src="https://images.unsplash.com/photo-1517430816045-df4b7de1fd5b?auto=format&fit=crop&w=800&q=60"
+          alt="Two way radio" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">CCTV & ANPR / License Plate Recognition</h3>
+        <p>
+          Deployment of high-resolution camera systems, smart analytics, and ANPR poles to monitor, detect, and log vehicle movements for security and traffic control.
+        </p>
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=60"
+          alt="CCTV camera" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">Premium Wireless Internet</h3>
+        <p>
+          High-capacity wireless links and managed broadband solutions — connecting offices, campuses, and rural areas with reliable internet access.
+        </p>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60"
+          alt="Wireless network" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">ICT & Networking</h3>
+        <p>
+          Enterprise networking design and implementation, structured cabling, VoIP, network security, and support services to ensure infrastructure is robust and scalable.
+        </p>
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60"
+          alt="Networking" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">VOIP & Repeater Solutions</h3>
+        <p>
+          We offer VoIP architecture, PBX setup, and repeater systems to extend communication reach in difficult terrains and indoor environments.
+        </p>
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=60"
+          alt="VoIP" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-xl font-semibold text-orange-600 mb-3">Office Automation & Managed Print</h3>
+        <p>
+          Automated workflow solutions, managed print/fax services, and smart office setups to streamline your daily operations and reduce costs.
+        </p>
+        <img src="https://images.unsplash.com/photo-1562072546-1cedf7bfa878?auto=format&fit=crop&w=800&q=60"
+          alt="Office automation" class="mt-4 rounded-lg object-cover w-full h-40" />
+      </div>
+    </div>
+  </section>
+
+  <!-- More Info / Why Choose Us -->
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Why Choose Khuselo Africa?</h2>
+    
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-semibold mb-4">Our Approach</h3>
+        <p class="mb-6">
+          At Khuselo Africa, we deliver more than just technology. We focus on building strong, long-term partnerships
+          with our clients by providing robust, scalable, and secure solutions that protect people and assets.
+        </p>
+        <ul class="list-disc list-inside space-y-3 text-gray-700">
+          <li><span class="font-semibold">National Reach:</span> Multiple branches across South Africa for localized support.</li>
+          <li><span class="font-semibold">Tailored Solutions:</span> Every system is customized to your sector — security, mining, logistics, or enterprise.</li>
+          <li><span class="font-semibold">Proactive Support:</span> 24/7 monitoring, quick response, and SLA-backed services.</li>
+          <li><span class="font-semibold">Innovation & Expertise:</span> Certified teams with years of experience in ICT, networking, and radio communication.</li>
+        </ul>
+      </div>
+      <div data-aos="fade-left" class="grid grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-lg font-semibold text-orange-600">Trusted by Industries</h4>
+          <p class="text-sm mt-2">Mining, Security, Transport, Agriculture, and Corporate clients rely on our solutions.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-lg font-semibold text-orange-600">Future Ready</h4>
+          <p class="text-sm mt-2">We use scalable and future-proof technology that grows with your operations.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-lg font-semibold text-orange-600">24/7 Support</h4>
+          <p class="text-sm mt-2">Dedicated support teams ensure minimal downtime and maximum uptime.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-lg font-semibold text-orange-600">Nationwide Coverage</h4>
+          <p class="text-sm mt-2">From rural areas to metropolitan hubs, we ensure seamless communication coverage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- About / Branches -->
+  <section id="about" class="py-20 px-6 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-8">About Us & Locations</h2>
+    <p class="text-center max-w-3xl mx-auto mb-10">
+      Khuselo Africa operates through branches across South Africa. This enables fast deployment, local support, and deep understanding of regional demands.
+    </p>
+    <div class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up">
+        <h4 class="font-semibold">Televonic</h4>
+        <p class="text-sm text-gray-600">Polokwane</p>
+        <p class="mt-2">123 Main Rd, Polokwane</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="font-semibold">Electra</h4>
+        <p class="text-sm text-gray-600">Nelspruit</p>
+        <p class="mt-2">45 Commerce St, Nelspruit</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="font-semibold">Vertel</h4>
+        <p class="text-sm text-gray-600">Pretoria</p>
+        <p class="mt-2">78 Capital Ave, Pretoria</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="font-semibold">Khuselo Telecoms</h4>
+        <p class="text-sm text-gray-600">Cape Town</p>
+        <p class="mt-2">9 Sea View Rd, Cape Town</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
+    <div class="max-w-xl mx-auto space-y-6 text-center" data-aos="fade-up">
+      <p>Email: <a href="mailto:info@khuselo.africa" class="text-orange-600 hover:underline">info@khuselo.africa</a></p>
+      <p>Phone: <span class="font-semibold">+27 11 000 0000</span></p>
+      <p>Head Office: 9 Sea View Rd, Cape Town</p>
+      <form class="mt-6 bg-white p-6 rounded-lg shadow space-y-3">
+        <input type="text" placeholder="Your Name" class="w-full border rounded-md p-2" />
+        <input type="email" placeholder="Your Email" class="w-full border rounded-md p-2" />
+        <textarea rows="4" placeholder="Message" class="w-full border rounded-md p-2"></textarea>
+        <button class="px-4 py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-400 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-800 text-white text-center">
+    <p>&copy; <span id="year"></span> Khuselo Africa. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Initialize AOS (scroll animations)
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+
+    // Simple slideshow logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".hero-slide");
+    function nextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }
+    setInterval(nextSlide, 5000); // change every 5 seconds
+
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
