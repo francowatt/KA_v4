@@ -1,326 +1,1534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ✅ Basic SEO -->
-  <title>Khuselo Africa | Secure Communications, Networking & Internet Solutions</title>
-  <meta name="description" content="Khuselo Africa delivers secure communication, networking, CCTV, and wireless internet solutions across South Africa. We connect and protect people, assets, and operations with reliable ICT, radio, and security systems." />
-  <meta name="keywords" content="Khuselo Africa, wireless internet South Africa, ICT solutions, business internet, CCTV installation, ANPR cameras, two-way radio, VoIP, office automation, network design, security systems, connectivity, broadband provider" />
-  <meta name="author" content="Khuselo Africa" />
-  <link rel="canonical" href="https://khuseloafrica.com/" />
-
-  <!-- ✅ Favicons (Browser + Mobile Icons) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="Assets/logo-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="Assets/logo-180.png" />
-  <meta name="theme-color" content="#f97316" />
-
-  <!-- ✅ Open Graph (Facebook, LinkedIn, WhatsApp) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Khuselo Africa | Secure Communications & Networking" />
-  <meta property="og:description" content="Leading provider of secure internet, radio, CCTV, and networking solutions across South Africa." />
-  <meta property="og:url" content="https://khuseloafrica.com/" />
-  <meta property="og:image" content="https://khuseloafrica.com/Assets/logo-512.png" />
-  <meta property="og:site_name" content="Khuselo Africa" />
-
-  <!-- ✅ Twitter Card (for social sharing) -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Khuselo Africa | Secure Communications & Networking" />
-  <meta name="twitter:description" content="Secure and reliable networking, radio, and CCTV solutions for South African businesses." />
-  <meta name="twitter:image" content="https://khuseloafrica.com/Assets/logo-512.png" />
-
-  <!-- ✅ Structured Data (for Google Rich Results) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Khuselo Africa",
-    "url": "https://khuseloafrica.com",
-    "logo": "https://khuseloafrica.com/Assets/logo-512.png",
-    "description": "Khuselo Africa provides integrated internet, security, and networking solutions across South Africa — including CCTV, radio communications, VoIP, and office automation.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+27 11 000 0000",
-      "contactType": "Customer Service",
-      "email": "info@khuselo.africa",
-      "areaServed": "ZA",
-      "availableLanguage": ["en"]
-    },
-    "sameAs": [
-      "https://www.facebook.com/khuseloafrica",
-      "https://www.linkedin.com/company/khuseloafrica"
-    ]
-  }
-  </script>
-
-  <!-- ✅ Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ✅ AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- ✅ Custom Styles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BushNet Solutions - Connectivity for the Wild</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --bg-cream: #f8f4ef;
+      --bg-cream-dark: #f0ebe4;
+      --olive-dark: #3d4a26;
+      --olive-medium: #5a6b3a;
+      --copper: #a67c52;
+      --copper-light: #c49a6c;
+      --text-dark: #2d3320;
+      --text-gray: #5a5a5a;
+      --text-light: #f8f4ef;
     }
-    .hero-slide {
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .font-mono {
+      font-family: 'Space Mono', monospace;
+    }
+    
+    /* Grain overlay */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.06;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    
+    /* Typography */
+    .heading-xl {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 0.95;
+      font-size: clamp(40px, 6vw, 80px);
+    }
+    
+    .heading-lg {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.0;
+      font-size: clamp(32px, 4.2vw, 54px);
+    }
+    
+    .label-mono {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background-color: var(--copper);
+      color: var(--text-light);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      background-color: var(--copper-light);
+      box-shadow: 0 10px 30px rgba(166, 124, 82, 0.3);
+    }
+    
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background-color: transparent;
+      color: var(--olive-dark);
+      border: 2px solid var(--olive-dark);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--olive-dark);
+      color: var(--text-light);
+    }
+    
+    .btn-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background-color: transparent;
+      color: var(--text-light);
+      border: 2px solid rgba(248, 244, 239, 0.6);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-light:hover {
+      background-color: rgba(248, 244, 239, 0.1);
+      border-color: var(--text-light);
+    }
+    
+    /* Cards */
+    .card-rounded {
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    
+    /* Sections */
+    .section-pinned {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .section-flowing {
+      position: relative;
+      width: 100%;
+      padding: 96px 0;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    nav.scrolled {
+      background-color: rgba(248, 244, 239, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    nav.scrolled .nav-logo,
+    nav.scrolled .nav-link {
+      color: var(--olive-dark);
+    }
+    
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(248, 244, 239, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--text-light);
+    }
+    
+    /* Hero Section */
+    .hero-bg {
       position: absolute;
+      inset: 0;
+    }
+    
+    .hero-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
     }
-    .hero-slide.active {
-      opacity: 1;
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(61, 74, 38, 0.7), rgba(61, 74, 38, 0.4), transparent);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 6vw;
+    }
+    
+    .hero-headline {
+      max-width: 52vw;
+      color: var(--text-light);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .hero-line {
+      display: block;
+    }
+    
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 38vw;
+      font-size: 18px;
+      color: rgba(248, 244, 239, 0.9);
+      line-height: 1.6;
+    }
+    
+    .hero-cta {
+      margin-top: 32px;
+    }
+    
+    .hero-badge {
+      position: absolute;
+      right: 6vw;
+      top: 34vh;
+      background: rgba(248, 244, 239, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      border-radius: 999px;
+    }
+    
+    .hero-sun {
+      position: absolute;
+      right: 8vw;
+      bottom: 20vh;
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      background-color: var(--copper);
+      opacity: 0.25;
+    }
+    
+    /* Section 2-4: Pinned content sections */
+    .content-section {
+      background-color: var(--bg-cream);
+    }
+    
+    .content-section.dark {
+      background-color: var(--olive-dark);
+    }
+    
+    .content-section.dark h2,
+    .content-section.dark p {
+      color: var(--text-light);
+    }
+    
+    .content-section.dark .btn-secondary {
+      color: var(--text-light);
+      border-color: rgba(248, 244, 239, 0.6);
+    }
+    
+    .content-section.dark .btn-secondary:hover {
+      background-color: rgba(248, 244, 239, 0.1);
+      border-color: var(--text-light);
+    }
+    
+    .section-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-photo {
+      position: absolute;
+      left: 6vw;
+      width: 40vw;
+      height: 64vh;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    }
+    
+    .section-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .section-photo.right {
+      left: auto;
+      right: 6vw;
+    }
+    
+    .section-text {
+      position: absolute;
+      right: 6vw;
+      width: 40vw;
+    }
+    
+    .section-text.left {
+      right: auto;
+      left: 6vw;
+      width: 44vw;
+    }
+    
+    .section-text h2 {
+      color: var(--olive-dark);
+      margin-bottom: 32px;
+    }
+    
+    .section-text p {
+      color: var(--text-gray);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    
+    .section-cta {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    
+    .feature-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    
+    .chip {
+      padding: 10px 18px;
+      background: rgba(61, 74, 38, 0.08);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--olive-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .content-section.dark .chip {
+      background: rgba(248, 244, 239, 0.1);
+      color: var(--text-light);
+    }
+    
+    .badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(248, 244, 239, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      border-radius: 999px;
+    }
+    
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--copper);
+      display: inline-block;
+      margin-right: 8px;
+    }
+    
+    /* Pricing Section */
+    .pricing-card {
+      background: rgba(61, 74, 38, 0.05);
+      border: 1px solid rgba(61, 74, 38, 0.1);
+      border-radius: 28px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      border-color: rgba(61, 74, 38, 0.2);
+    }
+    
+    .pricing-card.featured {
+      background: rgba(61, 74, 38, 0.08);
+      border-color: rgba(166, 124, 82, 0.4);
+      position: relative;
+    }
+    
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--copper);
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+    
+    .pricing-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(166, 124, 82, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    
+    .pricing-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--copper);
+    }
+    
+    .pricing-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--olive-dark);
+      margin-bottom: 8px;
+    }
+    
+    .pricing-card .subtitle {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 24px;
+    }
+    
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    
+    .pricing-card li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 12px;
+    }
+    
+    .pricing-card li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+    
+    /* Feature Grid */
+    .feature-item {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(61, 74, 38, 0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--copper);
+    }
+    
+    .feature-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--olive-dark);
+      margin-bottom: 8px;
+    }
+    
+    .feature-item p {
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+    
+    /* Process Steps */
+    .step-card {
+      background: rgba(61, 74, 38, 0.05);
+      border: 1px solid rgba(61, 74, 38, 0.1);
+      border-radius: 28px;
+      padding: 32px;
+    }
+    
+    .step-number {
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(61, 74, 38, 0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive-dark);
+      margin-bottom: 12px;
+    }
+    
+    .step-card p {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+      background: rgba(61, 74, 38, 0.05);
+      border: 1px solid rgba(61, 74, 38, 0.1);
+      border-radius: 28px;
+      padding: 32px;
+      position: relative;
+    }
+    
+    .quote-mark {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 72px;
+      color: rgba(166, 124, 82, 0.2);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-card p {
+      font-size: 17px;
+      color: var(--olive-dark);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      background: rgba(61, 74, 38, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .author-avatar svg {
+      width: 24px;
+      height: 24px;
+      color: var(--olive-dark);
+    }
+    
+    .author-info p {
+      margin: 0;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--olive-dark);
+    }
+    
+    .author-title {
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      background-color: var(--bg-cream-dark);
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(61, 74, 38, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--copper);
+    }
+    
+    .contact-info-item .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-gray);
+      margin-bottom: 4px;
+    }
+    
+    .contact-info-item .value {
+      font-weight: 600;
+      color: var(--olive-dark);
+    }
+    
+    .contact-form {
+      background: white;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-gray);
+      margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid rgba(61, 74, 38, 0.15);
+      border-radius: 12px;
+      font-size: 15px;
+      color: var(--olive-dark);
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--copper);
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(61, 74, 38, 0.4);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-cream-dark);
+      padding: 32px 0;
+      border-top: 1px solid rgba(61, 74, 38, 0.1);
+    }
+    
+    footer p {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .section-photo,
+      .section-photo.right {
+        position: relative;
+        left: auto;
+        right: auto;
+        width: 90vw;
+        height: 40vh;
+        margin: 0 auto 40px;
+      }
+      
+      .section-text,
+      .section-text.left {
+        position: relative;
+        left: auto;
+        right: auto;
+        width: 90vw;
+        margin: 0 auto;
+        padding: 0 6vw;
+      }
+      
+      .section-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 0;
+      }
+      
+      .hero-headline,
+      .hero-sub {
+        max-width: 90vw;
+      }
+      
+      .hero-badge,
+      .hero-sun {
+        display: none;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Utility classes */
+    .container {
+      padding: 0 6vw;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 1024px) {
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .mb-4 { margin-bottom: 16px; }
+    .mb-6 { margin-bottom: 24px; }
+    .mb-8 { margin-bottom: 32px; }
+    .mb-12 { margin-bottom: 48px; }
+    .mt-4 { margin-top: 16px; }
+    .mt-6 { margin-top: 24px; }
+    .mt-8 { margin-top: 32px; }
+    
+    .text-copper { color: var(--copper); }
+    .text-olive { color: var(--olive-dark); }
+    
+    .gold-underline {
+      width: 96px;
+      height: 3px;
+      background-color: var(--copper);
+      margin-top: 16px;
     }
   </style>
 </head>
+<body>
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
 
-<body class="bg-gray-50 text-gray-900">
-
- <!-- Header -->
-<header class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-    <!-- Logo -->
-    <div class="flex items-center">
-      <img src="Assets/KG.png" alt="Khuselo Logo" class="h-10 w-auto md:h-12" />
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">BushNet</a>
+    <div class="nav-links">
+      <a href="#coverage" class="nav-link">Coverage</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#support" class="nav-link">Support</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
+  </nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-
-    <!-- Navigation -->
-    <nav class="hidden md:flex gap-6 text-gray-700 items-center">
-      <a href="#home" class="hover:text-orange-600 transition">Home</a>
-      <a href="#services" class="hover:text-orange-600 transition">Services</a>
-      <a href="#about" class="hover:text-orange-600 transition">About</a>
-      <a href="#contact" class="hover:text-orange-600 transition">Contact</a>
-      <a href="#contact" class="px-3 py-1 border border-orange-500 text-orange-500 rounded hover:bg-orange-50 transition">Request Quote</a>
-    </nav>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white shadow">
-    <a href="#home" class="block py-2 text-gray-700 hover:text-orange-600">Home</a>
-    <a href="#services" class="block py-2 text-gray-700 hover:text-orange-600">Services</a>
-    <a href="#about" class="block py-2 text-gray-700 hover:text-orange-600">About</a>
-    <a href="#contact" class="block py-2 text-gray-700 hover:text-orange-600">Contact</a>
-    <a href="#contact" class="block mt-2 px-3 py-2 border border-orange-500 text-orange-500 rounded hover:bg-orange-50 transition text-center">Request Quote</a>
-  </div>
-</header>
-
-  
-  <!-- Hero / Slideshow -->
-  <section id="home" class="relative h-[60vh] md:h-[70vh] overflow-hidden">
-    <!-- Slides -->
-    <img src="Assets/Rad.png" class="hero-slide active" alt="Communication infrastructure" />
-    <img src="Assets/Cam.png" class="hero-slide" alt="Camera surveillance" />
-    <img src="Assets/Web.png" class="hero-slide" alt="Networking cables" />
-
-    <!-- Overlay content -->
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white px-6">
-      <div class="text-center space-y-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          Connect & Protect Our People & Assets 
+  <!-- Section 1: Hero -->
+  <section id="hero" class="section-pinned" style="z-index: 10;">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920&q=80" alt="Savanna landscape">
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-headline-group">
+        <h1 class="hero-headline">
+          <span class="hero-line">BUSHNET</span>
+          <span class="hero-line">CONNECTIVITY</span>
+          <span class="hero-line">FOR THE WILD</span>
         </h1>
-        <p class="text-lg md:text-2xl max-w-xl mx-auto">
-          Our mission is to secure your communications, network, and assets across South Africa.
-        </p>
-        <a href="#services" class="inline-block px-6 py-3 bg-orange-500 text-white font-semibold rounded shadow hover:bg-orange-400 transition transform hover:scale-105">
-          Explore Our Services
+      </div>
+      
+      <p class="hero-sub">
+        Reliable internet, Wi-Fi, cameras, and radio—built for farms, lodges, and remote teams in the Lowveld.
+      </p>
+      
+      <div class="hero-cta">
+        <a href="#coverage" class="btn-primary">
+          Check coverage
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
     </div>
+
+    <div class="hero-badge">
+      <span class="label-mono" style="color: rgba(248, 244, 239, 0.8);">Powered by Khuselo Telecoms</span>
+    </div>
+
+    <div class="hero-sun"></div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-20 px-6 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">Two-Way Radio & Repeater Solutions</h3>
-        <p>
-          We design and install two-way radio networks, repeaters, and long-range communication for operational coverage — ideal for security, mining, transport, and remote sites.
-        </p>
-        <img src="Assets/Rad.png"
-          alt="Two way radio" class="mt-4 rounded-lg object-cover w-full h-40" />
+  <!-- Section 2: Connectivity for the Wild -->
+  <section id="connectivity" class="section-pinned content-section" style="z-index: 20;">
+    <div class="section-inner">
+      <div class="section-photo s2-photo">
+        <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800&q=80" alt="Elephant in the wild">
       </div>
-
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">CCTV & ANPR / License Plate Recognition</h3>
-        <p>
-          Deployment of high-resolution camera systems, smart analytics, and ANPR poles to monitor, detect, and log vehicle movements for security and traffic control.
+      
+      <div class="section-text s2-text">
+        <h2 class="heading-lg s2-headline">
+          INTERNET THAT COVERS<br>THE BUSH
+        </h2>
+        
+        <p class="s2-body">
+          From 10 Mbps to 1 Gbps. Point-to-point wireless, guest networks, and failover—engineered for farms, lodges, and remote offices.
         </p>
-        <img src="Assets/Cam.png"
-          alt="CCTV camera" class="mt-4 rounded-lg object-cover w-full h-40" />
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">Premium Wireless Internet</h3>
-        <p>
-          High-capacity wireless links and managed broadband solutions — connecting offices, campuses, and rural areas with reliable internet access.
-        </p>
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60"
-          alt="Wireless network" class="mt-4 rounded-lg object-cover w-full h-40" />
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">ICT & Networking</h3>
-        <p>
-          Enterprise networking design and implementation, structured cabling, VoIP, network security, and support services to ensure infrastructure is robust and scalable.
-        </p>
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60"
-          alt="Networking" class="mt-4 rounded-lg object-cover w-full h-40" />
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="400">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">VOIP</h3>
-        <p>
-          We offer VoIP architecture, PBX setup, and repeater systems to extend communication reach in difficult terrains and indoor environments.
-        </p>
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=60"
-          alt="VoIP" class="mt-4 rounded-lg object-cover w-full h-40" />
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105" data-aos="fade-up" data-aos-delay="500">
-        <h3 class="text-xl font-semibold text-orange-600 mb-3">Office Automation & Managed Print</h3>
-        <p>
-          Automated workflow solutions, managed print/fax services, and smart office setups to streamline your daily operations and reduce costs.
-        </p>
-        <img src="Assets/OA.png"
-          alt="Office automation" class="mt-4 rounded-lg object-cover w-full h-40" />
+        
+        <div class="section-cta s2-cta">
+          <a href="#services" class="btn-primary">View packages</a>
+          <a href="#contact" class="btn-secondary">Talk to support</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- More Info / Why Choose Us -->
-<section class="py-20 px-6 max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">Why Choose Khuselo Africa?</h2>
-    
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div data-aos="fade-right">
-        <h3 class="text-2xl font-semibold mb-4">Our Approach</h3>
-        <p class="mb-6">
-          At Khuselo Africa, we deliver more than just technology. We focus on building strong, long-term partnerships
-          with our clients by providing robust, scalable, and secure solutions that protect people and assets.
+  <!-- Section 3: The Coverage Map -->
+  <section id="coverage" class="section-pinned content-section dark" style="z-index: 30; background-color: var(--olive-dark);">
+    <div class="section-inner">
+      <div class="section-text left s3-text">
+        <h2 class="heading-lg s3-headline" style="color: var(--text-light);">
+          SURVEY. LINK.<br>SUPPORT.
+        </h2>
+        
+        <p class="s3-body" style="color: rgba(248, 244, 239, 0.8);">
+          We map your terrain, install line-of-sight links, and stay on call with local support—no city call centers.
         </p>
-        <ul class="list-disc list-inside space-y-3 text-gray-700">
-          <li><span class="font-semibold">National Reach:</span> Multiple branches across South Africa for localized support.</li>
-          <li><span class="font-semibold">Tailored Solutions:</span> Every system is customized to your sector — security, mining, logistics, or enterprise.</li>
-          <li><span class="font-semibold">Proactive Support:</span> 24/7 monitoring, quick response, and SLA-backed services.</li>
-          <li><span class="font-semibold">Innovation & Expertise:</span> Certified teams with years of experience in ICT, networking, and radio communication.</li>
-        </ul>
+        
+        <a href="#contact" class="text-copper font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" style="margin-top: 16px; display: inline-flex;">
+          Request a site survey
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
       </div>
-      <div data-aos="fade-left" class="grid grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h4 class="text-lg font-semibold text-orange-600">Trusted by Industries</h4>
-          <p class="text-sm mt-2">Mining, Security, Transport, Agriculture, and Corporate clients rely on our solutions.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h4 class="text-lg font-semibold text-orange-600">Future Ready</h4>
-          <p class="text-sm mt-2">We use scalable and future-proof technology that grows with your operations.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h4 class="text-lg font-semibold text-orange-600">24/7 Support</h4>
-          <p class="text-sm mt-2">Dedicated support teams ensure minimal downtime and maximum uptime.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h4 class="text-lg font-semibold text-orange-600">Nationwide Coverage</h4>
-          <p class="text-sm mt-2">From rural areas to metropolitan hubs, we ensure seamless communication coverage.</p>
+      
+      <div class="section-photo right s3-photo">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Communications tower">
+        <div class="badge s3-badge">
+          <span class="badge-dot"></span>
+          <span class="label-mono" style="color: var(--olive-dark);">Site survey</span>
         </div>
       </div>
     </div>
   </section>
-  
 
-  <!-- About / Branches -->
-  <section id="about" class="py-20 px-6 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-8">About Us & Locations</h2>
-    <p class="text-center max-w-3xl mx-auto mb-10">
-      Khuselo Africa operates through branches across South Africa. This enables fast deployment, local support, and deep understanding of regional demands.
-    </p>
-    <div class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up">
-        <h4 class="font-semibold">Televonic</h4>
-        <p class="text-sm text-gray-600">Polokwane</p>
-        <p class="mt-2">1 Industira Street Polokwane </p>
+  <!-- Section 4: Built for Farms & Lodges -->
+  <section id="farms" class="section-pinned content-section" style="z-index: 40;">
+    <div class="section-inner">
+      <div class="section-photo s4-photo">
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80" alt="Remote work in the bush">
       </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="100">
-        <h4 class="font-semibold">Electra</h4>
-        <p class="text-sm text-gray-600">Nelspruit</p>
-        <p class="mt-2">45 Commerce St, Nelspruit</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="200">
-        <h4 class="font-semibold">Vertel</h4>
-        <p class="text-sm text-gray-600">Pretoria</p>
-        <p class="mt-2">78 Capital Ave, Pretoria</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:bg-orange-50 transition" data-aos="fade-up" data-aos-delay="300">
-        <h4 class="font-semibold">Khuselo Telecoms</h4>
-        <p class="text-sm text-gray-600">Cape Town</p>
-        <p class="mt-2">9 Sea View Rd, Cape Town</p>
+      
+      <div class="section-text s4-text">
+        <h2 class="heading-lg s4-headline">
+          BUILT FOR FARMS<br>& LODGES
+        </h2>
+        
+        <p class="s4-body">
+          Separate networks for guests and staff. Stable video calls. Cloud backups. And a support team that understands load-shedding and dust.
+        </p>
+        
+        <div class="feature-chips s4-chips">
+          <span class="chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+            Guest Wi-Fi
+          </span>
+          <span class="chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Failover
+          </span>
+          <span class="chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Local support
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-    <div class="max-w-xl mx-auto space-y-6 text-center" data-aos="fade-up">
-      <p>Email: <a href="mailto:operations@televonic.co.za" class="text-orange-600 hover:underline">operations@televonic.co.za</a></p>
-      <p>Phone: <span class="font-semibold">+015 297 3734</span></p>
-      <p>Head Office: 1 Industria st, Polokwane</p>
-      <form class="mt-6 bg-white p-6 rounded-lg shadow space-y-3">
-        <input type="text" placeholder="Your Name" class="w-full border rounded-md p-2" />
-        <input type="email" placeholder="Your Email" class="w-full border rounded-md p-2" />
-        <textarea rows="4" placeholder="Message" class="w-full border rounded-md p-2"></textarea>
-        <button class="px-4 py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-400 transition">Send Message</button>
-      </form>
+  <!-- Section 5: Speed & Service Tiers -->
+  <section id="services" class="section-flowing" style="z-index: 50;">
+    <div class="container">
+      <div class="flow-reveal mb-12" style="max-width: 64vw;">
+        <h2 class="heading-lg text-olive mb-4">CHOOSE A TIER THAT FITS</h2>
+        <p style="font-size: 18px; color: var(--text-gray);">
+          Transparent pricing. No city-style runarounds. Upgrade or downgrade anytime.
+        </p>
+        <div class="gold-underline"></div>
+      </div>
+      
+      <div class="flow-reveal-stagger grid-3">
+        <!-- Essential -->
+        <div class="stagger-item pricing-card">
+          <div class="pricing-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+          </div>
+          <h3>Essential</h3>
+          <p class="subtitle">Perfect for small homes</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              10–25 Mbps
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Guest network
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Email support
+            </li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="width: 100%; justify-content: center;">Get started</a>
+        </div>
+        
+        <!-- Pro -->
+        <div class="stagger-item pricing-card featured">
+          <div class="pricing-badge">
+            <span class="label-mono" style="color: var(--text-light);">Most Popular</span>
+          </div>
+          <div class="pricing-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Pro</h3>
+          <p class="subtitle">For lodges & farms</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              50–100 Mbps
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Failover ready
+            </li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Get started</a>
+        </div>
+        
+        <!-- Enterprise -->
+        <div class="stagger-item pricing-card">
+          <div class="pricing-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          </div>
+          <h3>Enterprise</h3>
+          <p class="subtitle">Large operations</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 1 Gbps
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              SLA guarantee
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Camera/radio bundles
+            </li>
+          </ul>
+          <a href="#contact" class="btn-secondary" style="width: 100%; justify-content: center;">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Smart Security & Voice -->
+  <section class="section-flowing" style="z-index: 50;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: 48px;">
+        <div class="flow-reveal">
+          <h2 class="heading-lg text-olive mb-6">
+            CAMERAS & RADIOS<br>THAT STAY ONLINE
+          </h2>
+          <p style="font-size: 18px; color: var(--text-gray); line-height: 1.7; margin-bottom: 32px;">
+            Solar cameras with night vision. Two-way radio with repeaters. Monitored from one dashboard—built for remote sites.
+          </p>
+          <a href="#contact" class="btn-primary">Get a security plan</a>
+        </div>
+        
+        <div class="flow-reveal" style="position: relative;">
+          <div class="card-rounded" style="box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80" alt="Security and radio equipment" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="position: absolute; bottom: -16px; left: -16px; width: 32px; height: 32px; border-radius: 50%; background-color: var(--copper);"></div>
+        </div>
+      </div>
+      
+      <div class="flow-reveal-stagger grid-4" style="margin-top: 64px;">
+        <div class="stagger-item feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <h4>Solar Cameras</h4>
+          <p>No cabling required</p>
+        </div>
+        <div class="stagger-item feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          </div>
+          <h4>Two-Way Radio</h4>
+          <p>Long-range coverage</p>
+        </div>
+        <div class="stagger-item feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Night Vision</h4>
+          <p>24/7 monitoring</p>
+        </div>
+        <div class="stagger-item feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          </div>
+          <h4>One Dashboard</h4>
+          <p>Multi-site viewing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: How We Install -->
+  <section id="support" class="section-flowing" style="z-index: 50;">
+    <div class="container">
+      <div class="flow-reveal text-center mb-12" style="max-width: 70vw; margin-left: auto; margin-right: auto;">
+        <h2 class="heading-lg text-olive mb-4">HOW WE INSTALL</h2>
+        <p style="font-size: 18px; color: var(--text-gray);">
+          Clear timeline. No surprises. Local support after go-live.
+        </p>
+      </div>
+      
+      <div class="flow-reveal-stagger grid-3">
+        <div class="stagger-item step-card">
+          <div class="step-number">01</div>
+          <h3>Site Survey</h3>
+          <p>Line-of-sight check and coverage plan tailored to your terrain and needs.</p>
+        </div>
+        <div class="stagger-item step-card">
+          <div class="step-number">02</div>
+          <h3>Install & Link</h3>
+          <p>Professional mounting, alignment, testing, and complete handover.</p>
+        </div>
+        <div class="stagger-item step-card">
+          <div class="step-number">03</div>
+          <h3>Support & Scale</h3>
+          <p>Ongoing monitoring, maintenance, and easy upgrades as you grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: What Clients Say -->
+  <section class="section-flowing" style="z-index: 50;">
+    <div class="container">
+      <div class="flow-reveal mb-12">
+        <h2 class="heading-lg text-olive">WHAT CLIENTS SAY</h2>
+      </div>
+      
+      <div class="flow-reveal-stagger grid-2">
+        <div class="stagger-item testimonial-card">
+          <div class="quote-mark">"</div>
+          <p>BushNet got our lodge online in 48 hours. Guest Wi-Fi is finally stable. Their team understands the unique challenges of operating in the bush.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="author-info">
+              <p class="author-name">Operations Manager</p>
+              <p class="author-title">Lowveld Lodge</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stagger-item testimonial-card">
+          <div class="quote-mark">"</div>
+          <p>They understand farms. When power dips, the failover kicks in instantly. Our operations never miss a beat.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="author-info">
+              <p class="author-name">Farm IT Lead</p>
+              <p class="author-title">Citrus Farm, Hoedspruit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Contact -->
+  <section id="contact" class="section-flowing contact-section" style="z-index: 50;">
+    <div class="container">
+      <div class="grid-2" style="align-items: start; gap: 48px;">
+        <div class="flow-reveal">
+          <h2 class="heading-lg text-olive mb-6">START A PROJECT</h2>
+          <p style="font-size: 18px; color: var(--text-gray); line-height: 1.7; margin-bottom: 32px;">
+            Tell us what you're building. We'll reply with a coverage check and a plan.
+          </p>
+          
+          <div>
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <p class="label">Call</p>
+                <p class="value">071 333 4524</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <p class="label">Email</p>
+                <p class="value">connect@bushnet.co.za</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="label">Hours</p>
+                <p class="value">Mon–Fri 07:00–18:00</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="label">Location</p>
+                <p class="value">Hoedspruit, Limpopo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flow-reveal contact-form">
+          <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" placeholder="Your phone" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" placeholder="Farm, lodge, or estate name">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              Request a callback
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-800 text-white text-center">
-    <p>&copy; <span id="year"></span> Khuselo Africa. All rights reserved.</p>
+  <footer>
+    <div class="container">
+      <p>© BushNet Solutions — Powered by Khuselo Telecoms</p>
+    </div>
   </footer>
 
   <script>
-    // Initialize AOS (scroll animations)
-    AOS.init({
-      duration: 800,
-      once: true,
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navigation scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Hero entrance animation
+    const heroTl = gsap.timeline();
+    
+    heroTl.fromTo('.hero-bg', 
+      { opacity: 0, scale: 1.08 },
+      { opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out' }
+    )
+    .fromTo('.hero-line', 
+      { x: '-10vw', opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: 'power2.out' },
+      '-=0.6'
+    )
+    .fromTo('.hero-sub', 
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+      '-=0.3'
+    )
+    .fromTo('.hero-cta', 
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+      '-=0.4'
+    )
+    .fromTo('.hero-badge', 
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.7, ease: 'power2.out' },
+      '-=0.5'
+    )
+    .fromTo('.hero-sun', 
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 0.25, duration: 0.7, ease: 'power2.out' },
+      '-=0.6'
+    );
+
+    // Hero exit animation
+    ScrollTrigger.create({
+      trigger: '#hero',
+      start: 'top top',
+      end: '+=130%',
+      pin: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        if (progress > 0.7) {
+          const exitProgress = (progress - 0.7) / 0.3;
+          gsap.set('.hero-headline-group', { 
+            x: -40 * exitProgress + 'vw', 
+            opacity: 1 - exitProgress * 0.75 
+          });
+          gsap.set('.hero-sub', { 
+            y: 10 * exitProgress + 'vh', 
+            opacity: 1 - exitProgress * 0.65 
+          });
+          gsap.set('.hero-cta', { 
+            y: 10 * exitProgress + 'vh', 
+            opacity: 1 - exitProgress * 0.65 
+          });
+          gsap.set('.hero-badge', { 
+            x: 12 * exitProgress + 'vw', 
+            opacity: 1 - exitProgress * 0.65 
+          });
+          gsap.set('.hero-sun', { 
+            scale: 1 + 0.6 * exitProgress, 
+            opacity: 0.25 * (1 - exitProgress) 
+          });
+        } else {
+          gsap.set('.hero-headline-group', { x: 0, opacity: 1 });
+          gsap.set('.hero-sub', { y: 0, opacity: 1 });
+          gsap.set('.hero-cta', { y: 0, opacity: 1 });
+          gsap.set('.hero-badge', { x: 0, opacity: 1 });
+          gsap.set('.hero-sun', { scale: 1, opacity: 0.25 });
+        }
+      },
+      onLeaveBack: () => {
+        gsap.set('.hero-headline-group', { x: 0, opacity: 1 });
+        gsap.set('.hero-sub', { y: 0, opacity: 1 });
+        gsap.set('.hero-cta', { y: 0, opacity: 1 });
+        gsap.set('.hero-badge', { x: 0, opacity: 1 });
+        gsap.set('.hero-sun', { scale: 1, opacity: 0.25 });
+      }
     });
 
-    // Simple slideshow logic
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".hero-slide");
-    function nextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
-    }
-    setInterval(nextSlide, 5000); // change every 5 seconds
+    // Section 2 - Connectivity
+    ScrollTrigger.create({
+      trigger: '#connectivity',
+      start: 'top top',
+      end: '+=130%',
+      pin: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const photo = document.querySelector('.s2-photo');
+        const headline = document.querySelector('.s2-headline');
+        const body = document.querySelector('.s2-body');
+        const cta = document.querySelector('.s2-cta');
 
-    // Set current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-    // Toggle mobile menu
-  document.getElementById("menu-toggle").addEventListener("click", () => {
-    const menu = document.getElementById("mobile-menu");
-    menu.classList.toggle("hidden");
-  });
+        if (progress <= 0.3) {
+          const enterProgress = progress / 0.3;
+          gsap.set(photo, { x: -60 * (1 - enterProgress) + 'vw', rotate: -2 * (1 - enterProgress), opacity: enterProgress });
+          gsap.set(headline, { x: 50 * (1 - Math.min(enterProgress * 1.5, 1)) + 'vw', opacity: Math.min(enterProgress * 1.5, 1) });
+          gsap.set(body, { y: 8 * (1 - Math.min(enterProgress * 1.2, 1)) + 'vh', opacity: Math.min(enterProgress * 1.2, 1) });
+          gsap.set(cta, { y: 10 * (1 - enterProgress) + 'vh', scale: 0.96 + 0.04 * enterProgress, opacity: enterProgress });
+        } else if (progress <= 0.7) {
+          gsap.set(photo, { x: 0, rotate: 0, opacity: 1 });
+          gsap.set(headline, { x: 0, opacity: 1 });
+          gsap.set(body, { y: 0, opacity: 1 });
+          gsap.set(cta, { y: 0, scale: 1, opacity: 1 });
+        } else {
+          const exitProgress = (progress - 0.7) / 0.3;
+          gsap.set(photo, { x: -18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(headline, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(body, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(cta, { y: 12 * exitProgress + 'vh', opacity: 1 - exitProgress * 0.8 });
+        }
+      }
+    });
+
+    // Section 3 - Coverage Map
+    ScrollTrigger.create({
+      trigger: '#coverage',
+      start: 'top top',
+      end: '+=130%',
+      pin: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const photo = document.querySelector('.s3-photo');
+        const headline = document.querySelector('.s3-headline');
+        const body = document.querySelector('.s3-body');
+        const badge = document.querySelector('.s3-badge');
+
+        if (progress <= 0.3) {
+          const enterProgress = progress / 0.3;
+          gsap.set(photo, { x: 60 * (1 - enterProgress) + 'vw', rotate: 2 * (1 - enterProgress), opacity: enterProgress });
+          gsap.set(headline, { x: -50 * (1 - Math.min(enterProgress * 1.5, 1)) + 'vw', opacity: Math.min(enterProgress * 1.5, 1) });
+          gsap.set(body, { y: 8 * (1 - Math.min(enterProgress * 1.2, 1)) + 'vh', opacity: Math.min(enterProgress * 1.2, 1) });
+          gsap.set(badge, { y: 6 * (1 - enterProgress) + 'vh', scale: 0.9 + 0.1 * enterProgress, opacity: enterProgress });
+        } else if (progress <= 0.7) {
+          gsap.set(photo, { x: 0, rotate: 0, opacity: 1 });
+          gsap.set(headline, { x: 0, opacity: 1 });
+          gsap.set(body, { y: 0, opacity: 1 });
+          gsap.set(badge, { y: 0, scale: 1, opacity: 1 });
+        } else {
+          const exitProgress = (progress - 0.7) / 0.3;
+          gsap.set(photo, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(headline, { x: -18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(body, { x: -18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(badge, { scale: 1 - 0.08 * exitProgress, opacity: 1 - exitProgress * 0.8 });
+        }
+      }
+    });
+
+    // Section 4 - Farms & Lodges
+    ScrollTrigger.create({
+      trigger: '#farms',
+      start: 'top top',
+      end: '+=130%',
+      pin: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const photo = document.querySelector('.s4-photo');
+        const headline = document.querySelector('.s4-headline');
+        const body = document.querySelector('.s4-body');
+        const chips = document.querySelector('.s4-chips');
+
+        if (progress <= 0.3) {
+          const enterProgress = progress / 0.3;
+          gsap.set(photo, { x: -60 * (1 - enterProgress) + 'vw', rotate: -2 * (1 - enterProgress), opacity: enterProgress });
+          gsap.set(headline, { x: 50 * (1 - Math.min(enterProgress * 1.5, 1)) + 'vw', opacity: Math.min(enterProgress * 1.5, 1) });
+          gsap.set(body, { y: 8 * (1 - Math.min(enterProgress * 1.2, 1)) + 'vh', opacity: Math.min(enterProgress * 1.2, 1) });
+          gsap.set(chips, { y: 10 * (1 - enterProgress) + 'vh', opacity: enterProgress });
+        } else if (progress <= 0.7) {
+          gsap.set(photo, { x: 0, rotate: 0, opacity: 1 });
+          gsap.set(headline, { x: 0, opacity: 1 });
+          gsap.set(body, { y: 0, opacity: 1 });
+          gsap.set(chips, { y: 0, opacity: 1 });
+        } else {
+          const exitProgress = (progress - 0.7) / 0.3;
+          gsap.set(photo, { x: -18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(headline, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(body, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+          gsap.set(chips, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.65 });
+        }
+      }
+    });
+
+    // Flowing sections animations
+    gsap.utils.toArray('.flow-reveal').forEach((el) => {
+      gsap.fromTo(el, 
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+
+    gsap.utils.toArray('.flow-reveal-stagger').forEach((container) => {
+      const children = container.querySelectorAll('.stagger-item');
+      gsap.fromTo(children,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
