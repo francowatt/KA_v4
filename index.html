@@ -857,9 +857,13 @@
   <!-- Section 1: Hero -->
   <section id="hero" class="section-pinned" style="z-index: 10;">
     <div class="hero-bg">
-      <img src="images/land2.png" alt="Savanna landscape">
-      <div class="hero-overlay"></div>
-    </div>
+  <picture>
+    <source media="(max-width: 768px)" srcset="images/land3.png">
+    <img src="images/land2.png" alt="Savanna landscape">
+  </picture>
+  <div class="hero-overlay"></div>
+</div>
+
     
     <div class="hero-content">
       <div class="hero-headline-group">
@@ -1446,4 +1450,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
-
