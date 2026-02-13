@@ -56,7 +56,7 @@
       height: 100%;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.06;
+      opacity: 0.1;
       mix-blend-mode: multiply;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
@@ -297,7 +297,7 @@
       height: 10vw;
       border-radius: 50%;
       background-color: var(--copper);
-      opacity: 0.25;
+      opacity: 0.4;
     }
     
     /* Section 2-4: Pinned content sections */
@@ -1301,12 +1301,12 @@ window.addEventListener('scroll', () => {
 
 /* ---------------- HERO INTRO ---------------- */
 gsap.timeline()
-.from('.hero-bg', { opacity: 0, scale: 1.05, duration: 1.1, ease: 'power2.out' })
-.from('.hero-line', { x: -120, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power2.out' }, "-=0.6")
-.from('.hero-sub', { y: 30, opacity: 0, duration: 0.6 }, "-=0.4")
-.from('.hero-cta', { y: 30, opacity: 0, duration: 0.6 }, "-=0.4")
-.from('.hero-badge', { scale: 0.9, opacity: 0, duration: 0.6 }, "-=0.4")
-.from('.hero-sun', { scale: 0.8, opacity: 0, duration: 0.6 }, "-=0.6");
+.from('.hero-bg', { opacity: 0.5, scale: 1.05, duration: 1.1, ease: 'power2.out' })
+.from('.hero-line', { x: -120, opacity: 0.5, stagger: 0.08, duration: 0.7, ease: 'power2.out' }, "-=0.6")
+.from('.hero-sub', { y: 30, opacity: 0.5, duration: 0.6 }, "-=0.4")
+.from('.hero-cta', { y: 30, opacity: 0.5, duration: 0.6 }, "-=0.4")
+.from('.hero-badge', { scale: 0.9, opacity: 0.5, duration: 0.6 }, "-=0.4")
+.from('.hero-sun', { scale: 0.8, opacity: 0.5, duration: 0.6 }, "-=0.6");
 
 
 /* ---------------- HERO SCROLL ---------------- */
@@ -1320,10 +1320,10 @@ gsap.timeline({
     anticipatePin: 1
   }
 })
-.to('.hero-headline-group', { x: -200, opacity: 0.2, ease: 'none' })
+.to('.hero-headline-group', { x: -200, opacity: 0.4, ease: 'none' })
 .to('.hero-sub, .hero-cta', { y: 80, opacity: 0, ease: 'none' }, "<")
-.to('.hero-badge', { x: 120, opacity: 0, ease: 'none' }, "<")
-.to('.hero-sun', { scale: 1.6, opacity: 0, ease: 'none' }, "<");
+.to('.hero-badge', { x: 120, opacity: 0.5, ease: 'none' }, "<")
+.to('.hero-sun', { scale: 1.6, opacity: 0.5, ease: 'none' }, "<");
 
 
 /* ---------------- PINNED SECTION FACTORY ---------------- */
@@ -1341,27 +1341,27 @@ function createPinnedSection(config) {
 
   tl.from(config.photo, {
     x: config.photoFrom,
-    opacity: 0,
+    opacity: 0.5,
     duration: 1,
     ease: 'power2.out'
   }, 0);
 
   tl.from(config.text, {
     x: config.textFrom,
-    opacity: 0,
+    opacity: 0.5,
     duration: 1,
     ease: 'power2.out'
   }, 0);
 
   tl.to(config.photo, {
     x: config.photoExit,
-    opacity: 0,
+    opacity: 0.5,
     ease: 'none'
   });
 
   tl.to(config.text, {
     x: config.textExit,
-    opacity: 0,
+    opacity: 0.5,
     ease: 'none'
   }, "<");
 }
@@ -1371,42 +1371,44 @@ createPinnedSection({
   section: '#connectivity',
   photo: '.s2-photo',
   text: '.s2-text',
-  photoFrom: -200,
-  textFrom: 200,
-  photoExit: -120,
-  textExit: 120
+  photoFrom: 0,
+  textFrom: 0,
+  photoExit: 0,
+  textExit: 0
 });
+
+
 
 createPinnedSection({
   section: '#coverage',
   photo: '.s3-photo',
   text: '.s3-text',
-  photoFrom: 200,
-  textFrom: -200,
-  photoExit: 120,
-  textExit: -120
+  photoFrom: 0,
+  textFrom:  0,
+  photoExit: 0,
+  textExit: 0
 });
 
 createPinnedSection({
   section: '#farms',
   photo: '.s4-photo',
   text: '.s4-text',
-  photoFrom: -200,
-  textFrom: 200,
-  photoExit: -120,
-  textExit: 120
+  photoFrom: 0,
+  textFrom: 0,
+  photoExit: 0,
+  textExit: 0
 });
 
 
 /* ---------------- FLOW REVEALS ---------------- */
 gsap.utils.toArray('.flow-reveal').forEach(el => {
   gsap.fromTo(el,
-    { y: 60, opacity: 0 },
+    { y: 60, opacity: 1 },
     {
       y: 0,
       opacity: 1,
       duration: 0.8,
-      ease: 'power2.out',
+      ease: 'none',
       scrollTrigger: {
         trigger: el,
         start: 'top 85%',
@@ -1419,13 +1421,13 @@ gsap.utils.toArray('.flow-reveal').forEach(el => {
 gsap.utils.toArray('.flow-reveal-stagger').forEach(container => {
   const children = container.querySelectorAll('.stagger-item');
   gsap.fromTo(children,
-    { y: 60, opacity: 0 },
+    { y: 60, opacity: 1 },
     {
       y: 0,
       opacity: 1,
       duration: 0.6,
       stagger: 0.1,
-      ease: 'power2.out',
+      ease: 'none',
       scrollTrigger: {
         trigger: container,
         start: 'top 80%',
@@ -1434,6 +1436,8 @@ gsap.utils.toArray('.flow-reveal-stagger').forEach(container => {
     }
   );
 });
+
+
 
 
 /* ---------------- SMOOTH ANCHOR SCROLL ---------------- */
