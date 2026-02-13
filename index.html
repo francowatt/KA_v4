@@ -894,10 +894,10 @@
   </section>
 
   <!-- Section 2: Connectivity for the Wild -->
-  <section id="connectivity" class="section-pinned content-section" style="z-index: 20;">
+  <section id="connectivity" class="section-pinned content-section flow-reveal" style="z-index: 20;">
     <div class="section-inner">
       <div class="section-photo s2-photo">
-        <img src="images/site1.png" alt="Elephant in the wild">
+        <img src="images/tower1.png" alt="Elephant in the wild">
       </div>
       
       <div class="section-text s2-text">
@@ -918,7 +918,7 @@
   </section>
 
   <!-- Section 3: The Coverage Map -->
-  <section id="coverage" class="section-pinned content-section dark" style="z-index: 30; background-color: var(--olive-dark);">
+  <section id="coverage" class="section-pinned content-section dark flow-reveal" style="z-index: 30; background-color: var(--olive-dark);">
     <div class="section-inner">
       <div class="section-text left s3-text">
         <h2 class="heading-lg s3-headline" style="color: var(--text-light);">
@@ -946,7 +946,7 @@
   </section>
 
   <!-- Section 4: Built for Farms & Lodges -->
-  <section id="farms" class="section-pinned content-section" style="z-index: 40;">
+  <section id="farms" class="section-pinned content-section flow-reveal" style="z-index: 40;">
     <div class="section-inner">
       <div class="section-photo s4-photo">
         <img src="images/work1.png" alt="Remote work in the bush">
@@ -1314,8 +1314,8 @@ gsap.timeline({
   scrollTrigger: {
     trigger: '#hero',
     start: 'top top',
-    end: '+=130%',
-    scrub: 0.8,
+    end: '+=0%',
+    scrub: true,
     pin: true,
     anticipatePin: 1
   }
@@ -1332,8 +1332,8 @@ function createPinnedSection(config) {
     scrollTrigger: {
       trigger: config.section,
       start: 'top top',
-      end: '+=130%',
-      scrub: 0.8,
+      end: '+=0%',
+      scrub: true,
       pin: true,
       anticipatePin: 1
     }
@@ -1341,27 +1341,27 @@ function createPinnedSection(config) {
 
   tl.from(config.photo, {
     x: config.photoFrom,
-    opacity: 0.5,
+    opacity: 1,
     duration: 1,
     ease: 'power2.out'
   }, 0);
 
   tl.from(config.text, {
     x: config.textFrom,
-    opacity: 0.5,
+    opacity: 1,
     duration: 1,
     ease: 'power2.out'
   }, 0);
 
   tl.to(config.photo, {
     x: config.photoExit,
-    opacity: 0.5,
+    opacity: 1,
     ease: 'none'
   });
 
   tl.to(config.text, {
     x: config.textExit,
-    opacity: 0.5,
+    opacity: 1,
     ease: 'none'
   }, "<");
 }
