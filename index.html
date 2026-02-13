@@ -1257,32 +1257,35 @@
         </div>
         
         <div class="flow-reveal contact-form">
-          <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+          <form action="https://formspree.io/f/xbdageov" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" placeholder="Your name" required>
+                <input type="text" name="name" placeholder="Your name" required>
               </div>
               <div class="form-group">
                 <label>Phone</label>
-                <input type="tel" placeholder="Your phone" required>
+                <input type="tel" name="phone" placeholder="Your phone" required>
               </div>
             </div>
+        
             <div class="form-group">
               <label>Email</label>
-              <input type="email" placeholder="your@email.com" required>
+              <input type="email" name="email" placeholder="franco@bushnet.africa" required>
             </div>
+        
             <div class="form-group">
               <label>Location</label>
-              <input type="text" placeholder="Farm, lodge, or estate name">
+              <input type="text" name="location" placeholder="Farm, lodge, or estate name">
             </div>
+
             <div class="form-group">
-              <label>Message</label>
-              <textarea rows="4" placeholder="Tell us about your project..."></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-              Request a callback
-            </button>
+  <label>Message</label>
+  <textarea name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+</div>
+<button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+  Request a callback
+</button>
           </form>
         </div>
       </div>
