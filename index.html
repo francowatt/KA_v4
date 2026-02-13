@@ -248,24 +248,34 @@
     }
     
     .hero-content {
-      position: relative;
-      z-index: 10;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 20vw;
-    }
-    
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;   /* ← forces left alignment */
+  text-align: left;          /* ← ensures text starts at same edge */
+  padding: 0 8vw;
+}
+
     .hero-headline {
-      max-width: 52vw;
-      color: var(--text-light);
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    }
+  max-width: 52vw;
+  color: var(--text-light);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  margin: 0;               /* removes any auto-centering */
+}
+
+.hero-headline-group {
+  margin: 0;
+}
+
     
     .hero-line {
-      display: block;
-    }
+  display: block;
+  width: 100%;
+}
+
     
     .hero-sub {
       margin-top: 32px;
@@ -1310,20 +1320,23 @@ gsap.timeline()
 
 
 /* ---------------- HERO SCROLL ---------------- */
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '#hero',
-    start: 'top top',
-    end: '+=0%',
-    scrub: true,
-    pin: true,
-    anticipatePin: 1
-  }
-})
-.to('.hero-headline-group', { x: -200, opacity: 0.4, ease: 'none' })
-.to('.hero-sub, .hero-cta', { y: 80, opacity: 0, ease: 'none' }, "<")
-.to('.hero-badge', { x: 120, opacity: 0.5, ease: 'none' }, "<")
-.to('.hero-sun', { scale: 1.6, opacity: 0.5, ease: 'none' }, "<");
+if (window.innerWidth > 768) {
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: '+=80%',
+      scrub: true,
+      pin: true,
+      anticipatePin: 1
+    }
+  })
+  .to('.hero-headline-group', { opacity: 0.4, ease: 'none' })
+  .to('.hero-sub, .hero-cta', { y: 80, opacity: 0, ease: 'none' }, "<")
+  .to('.hero-badge', { x: 120, opacity: 0.5, ease: 'none' }, "<")
+  .to('.hero-sun', { scale: 1.6, opacity: 0.5, ease: 'none' }, "<");
+}
+
 
 
 /* ---------------- PINNED SECTION FACTORY ---------------- */
