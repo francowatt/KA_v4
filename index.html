@@ -616,45 +616,58 @@
       align-items: center;
       gap: 16px;
     }
-   .khuselo-badge {
-  position: absolute;
-  right: 6vw;
-  top: 34vh;
+   /* Khuselo navbar badge */
+.khuselo-nav-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
-  color: var(--olive-dark);
-  background: rgba(248, 244, 239, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 8px 16px 8px 8px;
+  color: rgba(248, 244, 239, 0.75);
+  padding: 4px 16px 4px 4px;
   border-radius: 999px;
-  z-index: 20;
-  border: 1px solid rgba(61, 74, 38, 0.12);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(248, 244, 239, 0.35);
   transition: all 0.3s ease;
+  margin: 0 auto;
 }
 
-.khuselo-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
-  background: rgba(248, 244, 239, 0.98);
+.khuselo-nav-badge:hover {
+  color: var(--text-light);
+  border-color: rgba(248, 244, 239, 0.5);
+  background: rgba(248, 244, 239, 0.08);
 }
 
-.khuselo-badge .label-mono {
-  color: var(--text-gray);
-  font-size: 10px;
-  letter-spacing: 0.12em;
+nav.scrolled .khuselo-nav-badge {
+  color: var(--olive-dark);
+  border-color: rgba(61, 74, 38, 0.2);
 }
 
-.khuselo-badge-img {
-  height: 44px;
-  width: 44px;
+nav.scrolled .khuselo-nav-badge:hover {
+  border-color: rgba(61, 74, 38, 0.4);
+  background: rgba(61, 74, 38, 0.05);
+}
+
+.khuselo-nav-img {
+  height: 40px;
+  width: 40px;
   object-fit: contain;
   border-radius: 50%;
   background: white;
   display: block;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1024px) {
+  .khuselo-nav-img {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.khuselo-nav-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 /* Footer variant — inline, not absolute */
@@ -860,16 +873,8 @@
         display: none;
       }
 
-      .khuselo-badge {
-        top: auto;
-        bottom: 24px;
-        right: 50%;
-        transform: translateX(50%);
-        font-size: 10px;
-      }
-
-      .khuselo-badge:hover {
-        transform: translateX(50%) translateY(-2px);
+      .khuselo-nav-text {
+        display: none;
       }
       
       .nav-links {
@@ -945,6 +950,10 @@
   <!-- Navigation -->
   <nav id="navbar">
     <a href="#" class="nav-logo">BushNet SOLUTIONS</a>
+    <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer" class="khuselo-nav-badge">
+      <img src="images/Khuselo1.png" alt="Khuselo Group" class="khuselo-nav-img">
+      <span class="khuselo-nav-text">Powered by Khuselo Group</span>
+    </a>
     <div class="nav-links">
       <a href="#coverage" class="nav-link">Coverage</a>
       <a href="#services" class="nav-link">Services</a>
@@ -987,11 +996,6 @@
         </a>
       </div>
     </div>
-
-   <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer" class="khuselo-badge">
-  <img src="images/Khuselo1.png" alt="Khuselo Group" class="khuselo-badge-img">
-  <span class="label-mono">Powered by Khuselo Group</span>
-</a>
 
     <div class="hero-sun"></div>
   </section>
@@ -1391,7 +1395,7 @@
   <footer style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
     <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer" class="khuselo-badge-footer">
       <img src="images/Khuselo1.png" alt="Khuselo Group">
-      <span class="label-mono">Powered by Khuselo Group</span>
+      <span class="label-mono">Powered by The Khuselo Group</span>
     </a>
     <p style="margin:0;">&copy; 2025 BushNet Solutions</p>
   </footer>
