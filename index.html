@@ -616,6 +616,24 @@
       align-items: center;
       gap: 16px;
     }
+    .khuselo-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.khuselo-badge-img {
+  height: 40px; /* tweak to fit your layout */
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.khuselo-badge-img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
     
     .author-avatar {
       width: 48px;
@@ -904,13 +922,10 @@
       </div>
     </div>
 
-    <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer">
-      <div class="hero-badge">
-        <span class="label-mono" style="color: rgba(248, 244, 239, 0.8);">
-          Powered by Khuselo Group
-        </span>
-      </div>
-  </a>
+   <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer" class="khuselo-badge">
+  <img src="images/Khuselo1.png" alt="Khuselo Group" class="khuselo-badge-img">
+  <span class="label-mono">Powered by Khuselo Group</span>
+</a>
 
     <div class="hero-sun"></div>
   </section>
@@ -1308,9 +1323,10 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>© BushNet Solutions — Powered by Khuselo Telecoms</p>
-    </div>
+    <a href="https://khuselo.africa" target="_blank" rel="noopener noreferrer" class="khuselo-badge">
+  <img src="images/Khuselo1.png" alt="Khuselo Group" class="khuselo-badge-img">
+  <span class="label-mono">Powered by Khuselo Group</span>
+</a>
   </footer>
 
   <script>
