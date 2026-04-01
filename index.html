@@ -927,6 +927,98 @@ footer {
   .img-badge { left:0; font-size:.78rem; }
   .img-corner { display:none; }
 }
+
+/* ── TELEGRAM MODAL ── */
+.tg-overlay {
+  position:fixed; inset:0; z-index:9000;
+  background:rgba(20,22,18,.75); backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  opacity:0; pointer-events:none; transition:opacity .3s;
+}
+.tg-overlay.open { opacity:1; pointer-events:all; }
+.tg-card {
+  background:linear-gradient(145deg,#1a1f12,#22291a);
+  border:1px solid rgba(196,154,108,.35);
+  border-radius:20px; padding:38px 36px 32px;
+  max-width:420px; width:100%;
+  box-shadow:0 24px 64px rgba(0,0,0,.55), 0 0 0 1px rgba(196,154,108,.1);
+  transform:translateY(18px); transition:transform .35s;
+  position:relative;
+}
+.tg-overlay.open .tg-card { transform:translateY(0); }
+.tg-close {
+  position:absolute; top:14px; right:18px;
+  background:none; border:none; color:rgba(248,244,239,.35);
+  font-size:1.3rem; cursor:pointer; line-height:1;
+  transition:color .2s;
+}
+.tg-close:hover { color:var(--copper-lt); }
+.tg-icon {
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,#2AABEE,#229ED9);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; margin-bottom:20px;
+  box-shadow:0 6px 24px rgba(42,171,238,.3);
+}
+.tg-card h3 {
+  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-size:1.1rem; color:var(--text-lt);
+  margin-bottom:12px; letter-spacing:.3px;
+}
+.tg-card p {
+  font-size:.875rem; color:rgba(248,244,239,.65);
+  line-height:1.7; margin-bottom:10px;
+}
+.tg-points { list-style:none; margin:16px 0 28px; padding:0; display:flex; flex-direction:column; gap:10px; }
+.tg-points li {
+  display:flex; align-items:flex-start; gap:10px;
+  font-size:.84rem; color:rgba(248,244,239,.7); line-height:1.55;
+}
+.tg-points li span.tg-dot {
+  min-width:20px; height:20px; border-radius:50%;
+  background:rgba(166,124,82,.2); border:1px solid rgba(196,154,108,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.65rem; color:var(--copper-lt); margin-top:1px;
+}
+.tg-actions { display:flex; flex-direction:column; gap:10px; }
+.btn-tg-proceed {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  background:linear-gradient(135deg,#2AABEE,#229ED9);
+  color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.4px;
+  padding:13px 24px; border-radius:999px; border:none; cursor:pointer;
+  transition:transform .2s, box-shadow .3s;
+  box-shadow:0 4px 20px rgba(42,171,238,.3);
+}
+.btn-tg-proceed:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(42,171,238,.45); }
+.btn-tg-cancel {
+  background:transparent; border:1px solid rgba(196,154,108,.3);
+  color:rgba(248,244,239,.45); font-size:.82rem; font-weight:600;
+  padding:11px 24px; border-radius:999px; cursor:pointer;
+  transition:border-color .2s, color .2s;
+}
+.btn-tg-cancel:hover { border-color:rgba(196,154,108,.6); color:rgba(248,244,239,.7); }
+.tg-free-badge {
+  display:inline-block;
+  background:linear-gradient(135deg,rgba(166,124,82,.35),rgba(196,154,108,.2));
+  border:1px solid rgba(196,154,108,.7);
+  color:var(--copper-lt); font-weight:800; font-size:.78rem;
+  letter-spacing:1.2px; padding:2px 9px; border-radius:20px;
+  vertical-align:middle; margin:0 2px;
+  box-shadow:0 0 10px rgba(196,154,108,.2);
+}
+@media(max-width:480px) {
+  .tg-card { padding:28px 20px 24px; border-radius:16px; }
+  .tg-card h3 { font-size:1rem; }
+  .tg-card p { font-size:.82rem; }
+  .tg-points li { font-size:.8rem; }
+  .tg-icon { width:44px; height:44px; font-size:1.2rem; margin-bottom:14px; }
+  .btn-tg-proceed { font-size:.82rem; padding:13px 18px; }
+  .btn-tg-cancel { font-size:.78rem; padding:10px 18px; }
+  .tg-overlay { align-items:flex-end; padding:0; }
+  .tg-card { border-radius:20px 20px 0 0; max-width:100%; }
+  .tg-overlay.open .tg-card { transform:translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -1001,7 +1093,7 @@ footer {
       <p class="hero-sub">
         Reliable connections and solutions for the Lowveld — Wireless Internet, Digital Solutions, Radio Communications and Security.
       </p>
-      <a href="https://t.me/BushnetSolutionsAIBot" target="_blank" class="hero-pill">Talk to our AI BushNet agent, he is always ready to help</a>
+      <button onclick="openTgModal()" class="hero-pill">Talk to our AI BushNet agent, he is always ready to help</button>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">Reach Out Today</a>
         <a href="#solutions" class="btn-outline-lt">Explore Services →</a>
@@ -1741,6 +1833,52 @@ function submitForm(e){
   }
   draw();
 })();
+</script>
+
+<!-- ── TELEGRAM MODAL ── -->
+<div class="tg-overlay" id="tgOverlay" onclick="closeTgModal(event)">
+  <div class="tg-card">
+    <button class="tg-close" onclick="closeTgModal(true)" aria-label="Close">✕</button>
+    <div class="tg-icon">✈️</div>
+    <h3>Chat via Telegram</h3>
+    <p>Our AI BushNet agent is hosted on Telegram — a secure, fast messaging platform used by millions worldwide.</p>
+    <ul class="tg-points">
+      <li>
+        <span class="tg-dot">🔒</span>
+        Telegram provides end-to-end encrypted, fast messaging — your conversation is private and secure.
+      </li>
+      <li>
+        <span class="tg-dot">💬</span>
+        Once you start a chat, you can return to the same Telegram conversation any time for future questions — no need to start over.
+      </li>
+      <li class="tg-free-row">
+        <span class="tg-dot">📱</span>
+        <span>Telegram is <span class="tg-free-badge">100% FREE</span> and available on all devices. If you don't have it yet, you can download it in seconds.</span>
+      </li>
+    </ul>
+    <div class="tg-actions">
+      <a href="https://t.me/BushnetSolutionsAIBot" target="_blank" class="btn-tg-proceed" onclick="closeTgModal(true)">
+        Open Telegram Chat →
+      </a>
+      <button class="btn-tg-cancel" onclick="closeTgModal(true)">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openTgModal() {
+  document.getElementById('tgOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeTgModal(force) {
+  if (force === true || event.target === document.getElementById('tgOverlay')) {
+    document.getElementById('tgOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeTgModal(true);
+});
 </script>
 </body>
 </html>
