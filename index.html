@@ -427,15 +427,20 @@ nav.scrolled .hamburger span { background:var(--olive); }
   opacity:0; animation:fadeUp .8s 1s forwards;
 }
 .hero-pill {
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(166,124,82,.15); border:1px solid rgba(196,154,108,.35);
-  color:var(--copper-lt); font-size:.74rem; font-weight:600; letter-spacing:1px;
-  padding:7px 16px; border-radius:30px; margin-bottom:22px;
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(166,124,82,.25); border:1.5px solid rgba(196,154,108,.7);
+  color:#f8f4ef; font-size:.85rem; font-weight:700; letter-spacing:.5px;
+  padding:11px 22px; border-radius:30px; margin-bottom:22px;
   opacity:0; animation:fadeUp .8s 1.1s forwards;
-  transition:background .3s, border-color .3s;
+  transition:background .3s, border-color .3s, transform .2s, box-shadow .3s;
+  cursor:pointer; box-shadow:0 2px 18px rgba(166,124,82,.18);
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
 }
-.hero-pill:hover { background:rgba(166,124,82,.28); border-color:rgba(196,154,108,.7); }
-.hero-pill::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--copper-lt); }
+.hero-pill:hover {
+  background:rgba(166,124,82,.45); border-color:var(--copper-lt);
+  transform:translateY(-2px); box-shadow:0 6px 28px rgba(166,124,82,.35);
+}
+.hero-pill::before { content:'💬'; font-size:.9rem; line-height:1; }
 .hero-btns { display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s 1.25s forwards; }
 .btn-primary {
   position:relative; overflow:hidden;
@@ -1020,7 +1025,6 @@ footer {
   </div>
 
   <div class="hero-scroll">
-    <div class="scroll-mouse"></div>
     <span class="scroll-lbl">Scroll</span>
   </div>
 
