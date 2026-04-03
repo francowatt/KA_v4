@@ -62,8 +62,8 @@
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "07:00",
-    "closes": "18:00"
+    "opens": "08:00",
+    "closes": "17:00"
   },
   "areaServed": [
     "Hoedspruit", "Limpopo", "Lowveld", "Phalaborwa", "Tzaneen", "Klaserie", "Thornybush"
@@ -80,7 +80,9 @@
     ]
   },
   "sameAs": [
-    "https://t.me/BushnetSolutionsAIBot"
+    "https://t.me/BushnetSolutionsAIBot",
+    "https://www.instagram.com/bushnetsolutions/",
+    "https://www.facebook.com/profile.php?id=61575367713639"
   ],
   "parentOrganization": {
     "@type": "Organization",
@@ -266,9 +268,10 @@ nav.scrolled {
   backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
   box-shadow:0 1px 0 var(--b-lt), 0 4px 24px rgba(45,51,32,.1);
 }
-.nav-brand { display:flex; align-items:center; gap:13px; }
-.nav-brand img { height:52px; filter:drop-shadow(0 0 8px var(--cg)); transition:filter .3s; }
-.nav-brand img:hover { filter:drop-shadow(0 0 16px rgba(166,124,82,.6)); }
+.nav-brand { display:flex; flex-direction:column; justify-content:center; gap:2px; }
+.nav-brand-top { display:flex; align-items:center; gap:13px; }
+.nav-brand-top img { height:52px; filter:drop-shadow(0 0 8px var(--cg)); transition:filter .3s; }
+.nav-brand-top img:hover { filter:drop-shadow(0 0 16px rgba(166,124,82,.6)); }
 .nav-brand-name { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.25rem; color:var(--text-lt); transition:color .4s; line-height:1; margin-left:2px; }
 .nav-brand-name em { color:var(--copper-lt); font-style:normal; }
 nav.scrolled .nav-brand-name { color:var(--olive); }
@@ -418,7 +421,8 @@ nav.scrolled .hamburger span { background:var(--olive); }
   color:rgba(248,244,239,.45); -webkit-text-stroke:0;
   margin-top:6px;
 }
-.hero-h1 .typed-wrap { color:var(--copper-lt); -webkit-text-stroke:0; text-shadow:0 0 40px rgba(166,124,82,.5); }
+.typed-line { display:block; min-height:2.2em; }
+.hero-h1 .typed-wrap { color:var(--copper-lt); -webkit-text-stroke:0; text-shadow:0 0 40px rgba(166,124,82,.5); transition:opacity .3s ease; }
 .tcursor { display:inline-block; width:3px; height:.85em; background:var(--copper-lt); margin-left:3px; vertical-align:middle; animation:blink .8s step-end infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .hero-sub {
@@ -868,6 +872,18 @@ footer {
 .khuselo-credit img { height:28px; background:rgba(248,244,239,.92); border-radius:7px; padding:4px 10px; opacity:.9; transition:all .3s; }
 .khuselo-credit:hover { color:var(--copper-lt); }
 .khuselo-credit:hover img { opacity:1; box-shadow:0 2px 10px rgba(166,124,82,.35); }
+.contact-social { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:22px; }
+.cs-btn { display:inline-flex; align-items:center; gap:8px; padding:9px 18px; border-radius:50px; background:rgba(61,74,38,.08); border:1px solid rgba(61,74,38,.18); font-size:.82rem; font-weight:600; color:var(--olive); letter-spacing:.5px; transition:all .3s; }
+.cs-btn svg { width:16px; height:16px; flex-shrink:0; }
+.cs-btn:hover { background:var(--olive); color:var(--text-lt); border-color:var(--olive); transform:translateY(-2px); box-shadow:0 6px 18px rgba(61,74,38,.2); }
+.cs-btn-wa { background:rgba(37,211,102,.08); border-color:rgba(37,211,102,.3); color:#1a8a3a; }
+.cs-btn-wa svg { fill:#1a8a3a; }
+.cs-btn-wa:hover { background:#25d366; color:#fff; border-color:#25d366; box-shadow:0 6px 18px rgba(37,211,102,.3); }
+.cs-btn-wa:hover svg { fill:#fff; }
+.foot-social { display:flex; gap:12px; align-items:center; }
+.foot-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; background:rgba(248,244,239,.08); border:1px solid rgba(248,244,239,.1); transition:all .3s; color:rgba(248,244,239,.45); }
+.foot-social a:hover { background:rgba(166,124,82,.2); border-color:rgba(166,124,82,.4); color:var(--copper-lt); }
+.foot-social svg { width:17px; height:17px; }
 
 /* ══════════════════════════════════════
    SCROLL REVEAL
@@ -904,7 +920,11 @@ footer {
 @media(max-width:768px) {
   .sol-grid,.cam-features,.why-grid,.chips-row,.f-row2 { grid-template-columns:1fr; }
   .gallery-grid { grid-template-columns:1fr; }
-  .nav-center { display:none; }
+  nav { height:auto; padding:10px 6%; }
+  .nav-center { position:static; transform:none; }
+  .nav-khuselo { padding:3px 10px; }
+  .nav-khuselo img { height:16px; }
+  .nav-links { top:80px; }
   .nav-links {
     display:none; flex-direction:column; position:fixed;
     top:88px; left:0; right:0; background:rgba(61,74,38,.97);
@@ -1054,13 +1074,15 @@ footer {
 ══════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-brand">
-    <img src="images/favicon.png" alt="BushNet"/>
-    <div class="nav-brand-name">Bush<em>Net</em> Solutions</div>
-  </div>
-  <div class="nav-center">
-    <a href="https://khuselo.africa/" target="_blank" class="nav-khuselo">
-      <img src="images/Khuselo1.png" alt="Khuselo Group"/>
-    </a>
+    <div class="nav-brand-top">
+      <img src="images/favicon.png" alt="BushNet"/>
+      <div class="nav-brand-name">Bush<em>Net</em> Solutions</div>
+    </div>
+    <div class="nav-center">
+      <a href="https://khuselo.africa/" target="_blank" class="nav-khuselo">
+        <img src="images/Khuselo1.png" alt="Khuselo Group"/>
+      </a>
+    </div>
   </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#wifi">Internet</a></li>
@@ -1088,7 +1110,7 @@ footer {
       <h1 class="hero-h1">
         <span class="line-main">BushNet Connectivity</span>
         <span class="line-ghost">for the Lowveld</span>
-        <span class="typed-wrap" id="typed">Lodges</span><span class="tcursor"></span>
+        <span class="typed-line"><span class="typed-wrap" id="typed">Lodges</span><span class="tcursor"></span></span>
       </h1>
       <p class="hero-sub">
         Reliable connections and solutions for the Lowveld — Wireless Internet, Digital Solutions, Radio Communications and Security.
@@ -1542,12 +1564,30 @@ footer {
       <div class="s-label" data-rev="up" style="justify-content:center;"><span>Start a Project</span></div>
       <h2 class="s-head" data-rev="up" style="text-align:center;transition-delay:.1s;">Tell Us What <em>You Need</em></h2>
       <p class="s-body" data-rev="up" style="text-align:center;margin:12px auto 0;transition-delay:.2s;">We'll reach out and give you a solution. No obligation. Just honest advice.</p>
+      <div class="contact-social" data-rev="up" style="transition-delay:.3s;">
+        <a href="https://www.instagram.com/bushnetsolutions/" target="_blank" rel="noopener" class="cs-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61575367713639" target="_blank" rel="noopener" class="cs-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://wa.me/27713334524" target="_blank" rel="noopener" class="cs-btn cs-btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
     </div>
     <div class="contact-grid">
       <div class="c-list" data-rev="left">
         <div class="c-card">
           <div class="c-ico">📞</div>
           <div class="c-txt"><h4>Phone</h4><a href="tel:0713334524">071 333 4524</a></div>
+        </div>
+        <div class="c-card">
+          <div class="c-ico">💬</div>
+          <div class="c-txt"><h4>WhatsApp</h4><a href="https://wa.me/27713334524" target="_blank" rel="noopener">Chat on WhatsApp →</a></div>
         </div>
         <div class="c-card">
           <div class="c-ico">✉️</div>
@@ -1561,7 +1601,7 @@ footer {
           <div class="c-ico">🕐</div>
           <div class="c-txt">
             <h4>Office Hours</h4>
-            <p>Mon – Fri: 07:00 – 18:00</p>
+            <p>Mon – Fri: 08:00 – 17:00</p>
             <div class="hours-row"><div class="hours-dot"></div><span class="hours-txt">WhatsApp support until 21:00</span></div>
           </div>
         </div>
@@ -1624,6 +1664,17 @@ footer {
     <span>Powered by</span>
     <img src="images/Khuselo1.png" alt="Khuselo Group"/>
   </a>
+  <div class="foot-social">
+    <a href="https://www.instagram.com/bushnetsolutions/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61575367713639" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://wa.me/27713334524" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
   <div class="foot-copy">&copy; 2025 <strong>BushNet Solutions</strong> · Hoedspruit, Limpopo</div>
 </footer>
 
@@ -1671,7 +1722,8 @@ function type(){
   typedEl.textContent = del ? w.substring(0,ci--) : w.substring(0,ci++);
   let t = del ? 55 : 95;
   if(!del && ci>w.length){ t=2000; del=true; }
-  if(del && ci<0){ del=false; wi=(wi+1)%words.length; ci=0; t=280; }
+  if(del && ci<0){ typedEl.style.opacity='0'; del=false; wi=(wi+1)%words.length; ci=0; t=380; }
+  if(!del && ci===1){ typedEl.style.opacity='1'; }
   setTimeout(type,t);
 }
 setTimeout(type, 2800);
