@@ -1224,7 +1224,7 @@ footer {
         </div>
         <div style="display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;">
           <a href="#pricing" class="btn-copper">View Packages</a>
-          <a href="#contact" class="btn-outline-olive">Talk to Support</a>
+          <a href="#contact" class="btn-outline-olive" onclick="goContact('Hi, I need some support with my BushNet service. Please contact me at your earliest convenience.')">Talk to Support</a>
         </div>
       </div>
     </div>
@@ -1274,7 +1274,7 @@ footer {
         <h3>Request a Complimentary Site Survey</h3>
         <p>We want to get to know you and your property. Let us come out, assess your needs, and design the right solution — completely free.</p>
       </div>
-      <a href="#contact" class="btn-copper">Book Now →</a>
+      <a href="#contact" class="btn-copper" onclick="goContact('Hi, I\'d like to book a free site survey. Please contact me to arrange a convenient time.','Free Site Survey')">Book Now →</a>
     </div>
   </div>
 </section>
@@ -1379,7 +1379,7 @@ footer {
           <div class="chip">☀️ Solar Backup Ready</div>
         </div>
         <div style="margin-top:30px;">
-          <a href="#contact" class="btn-primary">Get Started</a>
+          <a href="#contact" class="btn-primary" onclick="goContact('Hi, I\'d like to learn more about your connectivity solutions for my property. Please reach out to discuss what would work best for me.')">Get Started</a>
         </div>
       </div>
       <div data-rev="right">
@@ -1423,7 +1423,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 10 Mbps</span>
         </div>
         <div class="pkg-price">R995 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 10 package (↑ 5 Mbps / ↓ 10 Mbps at R995 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row">
@@ -1433,7 +1433,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 15 Mbps</span>
         </div>
         <div class="pkg-price">R1&nbsp;200 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 15 package (↑ 8 Mbps / ↓ 15 Mbps at R1,200 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row">
@@ -1443,7 +1443,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 20 Mbps</span>
         </div>
         <div class="pkg-price">R1&nbsp;600 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 20 package (↑ 10 Mbps / ↓ 20 Mbps at R1,600 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row pkg-popular">
@@ -1453,7 +1453,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 25 Mbps</span>
         </div>
         <div class="pkg-price">R2&nbsp;200 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 25 package (↑ 13 Mbps / ↓ 25 Mbps at R2,200 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row">
@@ -1463,7 +1463,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 30 Mbps</span>
         </div>
         <div class="pkg-price">R3&nbsp;200 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 30 package (↑ 15 Mbps / ↓ 30 Mbps at R3,200 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row">
@@ -1473,7 +1473,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 50 Mbps</span>
         </div>
         <div class="pkg-price">R4&nbsp;900 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 50 package (↑ 25 Mbps / ↓ 50 Mbps at R4,900 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
       <div class="pkg-row">
@@ -1483,7 +1483,7 @@ footer {
           <span class="pkg-speed-pill dn">↓ 100 Mbps</span>
         </div>
         <div class="pkg-price">R8&nbsp;200 <sub>p/m</sub></div>
-        <a href="#contact" class="pkg-quote">Get a Quote</a>
+        <a href="#contact" class="pkg-quote" onclick="goContact('Hi, I\'d like to get a quote for the Standard 100 package (↑ 50 Mbps / ↓ 100 Mbps at R8,200 p/m). Please contact me to discuss availability and installation.','Wireless Internet &amp; WiFi')">Get a Quote</a>
       </div>
 
     </div>
@@ -1550,14 +1550,11 @@ footer {
           <li>Pricing is tailored to your site — enquire for a custom quote.</li>
         </ul>
         <div style="margin-top:20px;">
-          <a href="#contact" class="btn-copper">Enquire About Premium →</a>
+          <a href="#contact" class="btn-copper" onclick="goContact('Hi, I\'m interested in your Premium Packages. I\'d like to enquire about custom pricing, dedicated bandwidth options, and what\'s available for my property.','Wireless Internet &amp; WiFi')">Enquire About Premium →</a>
         </div>
       </div>
     </div>
 
-    <div class="pkg-flyer" data-rev="up" style="transition-delay:.4s;">
-      <img src="images/New Pricelist.jpeg" alt="BushNet Standard Packages Pricelist"/>
-    </div>
 
   </div>
 </section>
@@ -1596,7 +1593,7 @@ footer {
           </div>
         </div>
         <div style="margin-top:30px;">
-          <a href="#contact" class="btn-copper">Start a Digital Project</a>
+          <a href="#contact" class="btn-copper" onclick="goContact('Hi, I\'m interested in starting a digital project with BushNet Solutions. Please contact me to discuss requirements and options.','Digital Products &amp; Solutions')">Start a Digital Project</a>
         </div>
       </div>
       <div class="visual-wrap" data-rev="right">
@@ -1618,7 +1615,7 @@ footer {
         <div class="s-line" data-rev="left" style="transition-delay:.15s;"></div>
         <p class="s-body" data-rev="left" style="transition-delay:.2s;">Local expertise. Solar-hardened infrastructure. A team that understands the realities of the Lowveld.</p>
         <div data-rev="left" style="margin-top:30px;transition-delay:.25s;">
-          <a href="#contact" class="btn-primary">Start a Project</a>
+          <a href="#contact" class="btn-primary" onclick="goContact('Hi, I\'d like to start a connectivity project with BushNet Solutions. Please reach out to discuss our requirements.')">Start a Project</a>
         </div>
       </div>
       <div class="why-grid">
@@ -1633,24 +1630,6 @@ footer {
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     GALLERY
-══════════════════════════════════ -->
-<section id="gallery" class="bg-cream-dk">
-  <div class="sw">
-    <div style="text-align:center;" data-rev="up">
-      <div class="s-label" style="justify-content:center;"><span>Our Work</span></div>
-      <h2 class="s-head" style="text-align:center;">Infrastructure <em>in Action</em></h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="g-item" data-rev="scale"><img src="images/ins1.png" alt="Installation"/><div class="g-ov"><span class="g-lbl">Professional Installation Team</span></div><div class="g-no">01</div></div>
-      <div class="g-item" data-rev="up" style="transition-delay:.1s;"><img src="images/tower1.png" alt="Tower"/><div class="g-ov"><span class="g-lbl">Lowveld Tower Network</span></div><div class="g-no">02</div></div>
-      <div class="g-item" data-rev="up" style="transition-delay:.2s;"><img src="images/site1.png" alt="Solar site"/><div class="g-ov"><span class="g-lbl">Solar-Powered Site</span></div><div class="g-no">03</div></div>
-      <div class="g-item" data-rev="up" style="transition-delay:.3s;"><img src="images/DP1.png" alt="Digital Products"/><div class="g-ov"><span class="g-lbl">Digital Solutions</span></div><div class="g-no">04</div></div>
-      <div class="g-item" data-rev="up" style="transition-delay:.4s;"><img src="images/work1.png" alt="Remote work"/><div class="g-ov"><span class="g-lbl">Work From Anywhere</span></div><div class="g-no">05</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════
      PARTNER
@@ -1745,9 +1724,10 @@ footer {
         <form onsubmit="submitForm(event)">
           <div class="f-row2">
             <div class="f-field"><label>Your Name</label><input type="text" name="name" placeholder="Name" required/></div>
-            <div class="f-field"><label>Phone Number</label><input type="tel" name="phone" placeholder="+27 ..."/></div>
+            <div class="f-field"><label>Phone Number <span style="font-weight:400;opacity:.7;">(or email)</span></label><input type="tel" name="phone" placeholder="+27 ..."/></div>
           </div>
-          <div class="f-field"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com" required/></div>
+          <div class="f-field"><label>Email Address <span style="font-weight:400;opacity:.7;">(or phone)</span></label><input type="email" name="email" placeholder="you@example.com"/></div>
+          <div id="contact-err" style="display:none;color:#c0392b;font-size:.85rem;margin:-8px 0 8px;padding:8px 12px;background:rgba(192,57,43,.08);border-radius:6px;">Please enter at least an email address or phone number.</div>
           <div class="f-field"><label>Your Location</label><input type="text" name="location" placeholder="Farm name, suburb, or area"/></div>
           <div class="f-field">
             <label>Service Interest</label>
@@ -1950,9 +1930,32 @@ window.addEventListener('scroll', () => {
   })();
 })();
 
+/* CONTACT PRE-FILL */
+function goContact(msg, svc){
+  const textarea = document.querySelector('#contact textarea[name="message"]');
+  const select   = document.querySelector('#contact select[name="service"]');
+  if(textarea) textarea.value = msg || '';
+  if(select && svc){
+    for(let i=0;i<select.options.length;i++){
+      if(select.options[i].text === svc){ select.selectedIndex=i; break; }
+    }
+  }
+  const section = document.getElementById('contact');
+  if(section) section.scrollIntoView({behavior:'smooth'});
+}
+
 /* FORM */
 function submitForm(e){
   e.preventDefault();
+  const errEl = document.getElementById('contact-err');
+  const email = e.target.querySelector('[name="email"]').value.trim();
+  const phone = e.target.querySelector('[name="phone"]').value.trim();
+  if(!email && !phone){
+    if(errEl) errEl.style.display='block';
+    e.target.querySelector('[name="email"]').focus();
+    return;
+  }
+  if(errEl) errEl.style.display='none';
   const btn = e.target.querySelector('.btn-form');
   const data = new FormData(e.target);
   btn.textContent='Sending…';
